@@ -45,7 +45,7 @@
     ![](2023-04-17-14-37-45.png)  
     幸运的是，XDP项目在其教程xdp-tutorial中提供了一个现成的parser库`parsing_helper.c`，我们可以直接调用。  
     我们以IP头部的解析器`parse_iphdr`为例来简要介绍：  
-    ```C
+    ```c
     /* Header cursor to keep track of current parsing position */
     struct hdr_cursor {
         void *pos;
@@ -89,7 +89,7 @@
 
 2.  核心代码编写  
     本节主要以TC为例，并在注释中给出XDP的实现。
-    ```C
+    ```c
     /* A eBPF/TC firewall to block packets from 223.5.5.5 */
     int droppacket(struct __sk_buff *skb){ // XDP: int droppacket(struct xdp_md *ctx){
         
