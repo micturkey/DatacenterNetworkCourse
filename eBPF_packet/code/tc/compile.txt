@@ -1,1 +1,0 @@
-clang -O2 -target bpf -c tc.c -o tc.o -I/usr/include/aarch64-linux-gnu
