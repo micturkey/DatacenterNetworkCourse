@@ -136,7 +136,7 @@
         ```shell
         # 网卡接口需要自行通过ip a命令查看
         sudo tc qdisc add dev ens33 clsact
-        sudo tc filter add dev ens33 egress bpf direct-action obj tc.o sec tc
+        sudo tc filter add dev ens33 ingress bpf direct-action obj tc.o sec tc
         ```
         卸载：
         ```shell
