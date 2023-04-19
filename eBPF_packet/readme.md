@@ -173,6 +173,7 @@
 1. 协议的判断可以通过判断`iph->protocol`是否为`IPPROTO_TCP`实现，记得首先`#include <linux/in.h>`。  
 2. 先利用`parse_tcphdr()`函数解析TCP头部后再进行端口判断，该函数定义在`parsing_helpers.h`头文件中，返回值为`int`类型，值为TCP头部中储存的TCP头部长度。
 3. 端口由`tcphdr`结构体的`dest`或`source`对象决定，本次只需要针对流入流量处理即可，所以选择`dest`对象，即指向本机的目标端口。具体用法为`tcphdr->dest`。另外，端口号为大段顺序的16位整数，`22`对应的大段十六进制端口号为`0x1600`。
+4. 使用XDP或TC均可。
 
 
 
