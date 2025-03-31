@@ -1,0 +1,22 @@
+# 补充手册
+
+## 问题说明
+有的同学可能在安装bcc时会遇到如下的问题：
+这可能是由于网络问题，在git clone子模块时失败了，如果遇到了可以通过依次执行如下命令尝试解决。该解决方案本质上是下载一个打包了子模块的源码包。
+
+
+mkdir ~/bcc_submodule
+cd ~/bcc_submodule
+wget https://github.com/iovisor/bcc/releases/download/v0.27.0/bcc-src-with-submodule.tar.gz
+tar xzvf bcc-src-with-submodule.tar.gz  
+mkdir bcc/build; cd bcc/build
+cmake ..
+make
+sudo make install
+cmake -DPYTHON_CMD=python3 ..
+pushd src/python/
+make
+sudo make install
+popd
+ 
+安装完成后请重新回到原实验手册中进一步操作。
